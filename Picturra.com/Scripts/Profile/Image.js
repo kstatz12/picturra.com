@@ -1,5 +1,4 @@
 ﻿(function () {
-
     function Upload(attrId) {
         var fileInput = attrId;
         var formData = new FormData();
@@ -40,6 +39,7 @@
             }
         });
     }
+
     var ImageViewModel = function (imageUrl, imageCaption, imagePublicKey,imageName, attrId) {
         var self = this;
         self.ImageUrl = ko.observable(imageUrl);
