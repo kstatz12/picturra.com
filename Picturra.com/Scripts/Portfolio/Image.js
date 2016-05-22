@@ -12,7 +12,11 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                return data.Image.ImageUrl;
+                var retVal = {
+                    imageUrl: data.Image.ImageUrl,
+                    imagePublicKey: data.Image.PublicKey
+                };
+                return retVal;
             },
             failure: function (data) {
                 return false;
@@ -21,12 +25,26 @@
     }
 
     function Delete(publicId) {
-
+        var data = {
+            PublicKey: publicId
+        };
+        $.ajax({
+            url: "/Upload/Delete",
+            type: "POST",
+            data: data,
+            success: function (data) {
+                return true;
+            },
+            failure: function (data) {
+                return false;
+            }
+        });
     }
-    var ImageViewModel = function (imageUrl, imageCaption, imageName, attrId) {
+    var ImageViewModel = function (imageUrl, imageCaption, imagePublicKey,imageName, attrId) {
         var self = this;
         self.ImageUrl = ko.observable(imageUrl);
         self.ImageCaption = ko.observable(imageCaption);
+        self.ImagePublicKey = ko.observable(imagePublicKey);
         self.AttributeId = ko.observable(attrId);
         self.buttonEnable = ko.observable(true);
         self.buttonText = ko.computed(function () {
@@ -38,6 +56,15 @@
             var imageUrl = Upload(attr);
             if (imageUrl === false) {
                 alert('Image Failed to Upload');
+            }
+            else {
+                self.ImageUrl(imageUrl.imageUrl);
+            }
+        }
+
+        self.delete = function () {
+            if (!Delete(self.ImagePublicKey())) {
+                alert("Image Failed to Delete, Please Try again or contact support")
             }
         }
     }
