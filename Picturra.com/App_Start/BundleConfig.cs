@@ -30,6 +30,14 @@ namespace Picturra.com
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                     "~/Scripts/knockout-3.4.0.js",
                     "~/Scripts/knockout.validation.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/profile").Include(
+                    "~/Scripts/Profile/Image.js",
+                    "~/Scripts/Profile/Portfolio.js",
+                    "~/Scripts/Profie/Profile.js",
+                    "~/Scripts/Profile/Project.js",
+                    "~/Scripts/Profile/Series.js"
+                ));
         }
     }
 }

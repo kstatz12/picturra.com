@@ -230,9 +230,10 @@
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Scripts\knockout.validation.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Portfolio\Image.js" />
-    <Content Include="Scripts\Portfolio\Portfolio.js" />
-    <Content Include="Scripts\Portfolio\Profile.js" />
+    <Content Include="Scripts\Profile\Image.js" />
+    <Content Include="Scripts\Profile\Portfolio.js" />
+    <Content Include="Scripts\Profile\Profile.js" />
+    <Content Include="Scripts\Profile\Series.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\underscore.js" />
