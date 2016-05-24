@@ -1,4 +1,4 @@
-﻿
+﻿@model Picturra.Models.Profile.Profile
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,13 +29,18 @@
                     <h3 class="panel-title">Profile Information</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group">
-                        <label for="ProfileNameInput">Profile Name</label>
-                        <input type="text" class="form-control" id="ProfileNameInput" />
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ProfileNameInput">Profile Name</label>
+                            <input type="text" class="form-control" id="ProfileNameInput" />
+                        </div>
+                        <div class="form-group">
+                            <label for="ProfileAboutInput">About</label>
+                            <textarea class="form-control" cols="5" id="ProfileAboutInput"></textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="ProfileAboutInput">About</label>
-                        <textarea class="form-control" cols="5" id="ProfileAboutInput"></textarea>
+                    <div class="col-md-6">
+                        <div data-bind="template: { name: 'image-template', data: Image }"></div>
                     </div>
                 </div>
             </div>
@@ -64,12 +69,22 @@
     </div>
 </div>
 
-
+<script type="text/html" id="image-template">
+    <div class="form-group">
+        <label data-bind="attr: { for: AttributeId }">Upload</label>
+        <input type="file" class="form-control" data-bind="attr: { id: AttributeId }" />
+    </div>
+    <div class="form-group">
+        <label for="ImageCaption">Caption</label>
+        <textarea class="form-control" data-bind="textInput: Caption"></textarea>
+    </div>
+</script>
 @section Scripts{
     @Scripts.Render("~/bundles/profile");
     <script type="text/javascript">
         $(document).ready(function () {
-
+            var model = ko.toJSON(@Html.Raw(Json.Encode(Model)));
+            ko.applyBindings(new ViewModel(model));
         });
     </script>
 }

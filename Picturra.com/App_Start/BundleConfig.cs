@@ -21,7 +21,8 @@ namespace Picturra.com
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/bootstrap-datepicker.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -31,10 +32,15 @@ namespace Picturra.com
                     "~/Scripts/knockout-3.4.0.js",
                     "~/Scripts/knockout.validation.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/util").Include(
+                    "~/Scripts/utils.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/profile").Include(
+                    "~/Scripts/Profile/ProfileEdit.js",
                     "~/Scripts/Profile/Image.js",
                     "~/Scripts/Profile/Portfolio.js",
-                    "~/Scripts/Profie/Profile.js",
+                    "~/Scripts/Profile/Profile.js",
                     "~/Scripts/Profile/Project.js",
                     "~/Scripts/Profile/Series.js"
                 ));

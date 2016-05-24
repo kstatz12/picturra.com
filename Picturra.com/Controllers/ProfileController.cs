@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Picturra.Models.Profile;
 
 namespace Picturra.com.Controllers
 {
@@ -16,7 +13,8 @@ namespace Picturra.com.Controllers
 
         public ActionResult Edit()
         {
-            return View();
+            var model = new Profile();
+            return View(model);
         }
 
     }

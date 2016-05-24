@@ -40,13 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Image\Image.cs" />
     <Compile Include="Image\ImageUpload.cs" />
+    <Compile Include="Profile\Porftolio.cs" />
+    <Compile Include="Profile\Profile.cs" />
+    <Compile Include="Profile\Project.cs" />
+    <Compile Include="Profile\Series.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Profile\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

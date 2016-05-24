@@ -1,6 +1,5 @@
 ﻿using CloudinaryDotNet;
 using Picturra.Models.Image;
-using Picturra.Models.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
