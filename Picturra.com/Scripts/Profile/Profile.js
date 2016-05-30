@@ -3,6 +3,6 @@
     self.Id = id;
     self.Name = ko.observable(name);
     self.About = ko.observable(about);
-    self.Image = new ImageViewModel(image.Id, image.Url, image.Caption, image.PublicKey, guid());
-    self.Portofolio = new PortofolioViewModel(portfolio.Id, portoflio.Statement, portoflio.SeriesCollection);
+    self.Image = new ImageViewModel(image.Id, image.Url, image.Caption, image.PublicKey, image.Name, guid());
+    self.Portofolio = new PortofolioViewModel(portfolio.Id, portfolio.Statement, portfolio.SeriesCollection);
 }

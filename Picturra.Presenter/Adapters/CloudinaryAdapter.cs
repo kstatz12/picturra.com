@@ -36,7 +36,7 @@ namespace Picturra.Presenter.Adapters
             var cloudinary = new Cloudinary(Credentials);
             var uploadParams = new ImageUploadParams
             {
-                File = new FileDescription(imageUpload.FileName, new MemoryStream(imageUpload.File))
+                File = new FileDescription(imageUpload.FileName, imageUpload.File)
             };
             var uploadResult = cloudinary.Upload(uploadParams);
             _imageUploadRepository.Set(imageUpload);

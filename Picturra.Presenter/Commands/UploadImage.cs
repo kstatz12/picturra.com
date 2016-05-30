@@ -1,10 +1,6 @@
 ﻿using Picturra.Models.Image;
 using Picturra.Presenter.Adapters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Picturra.Presenter.Commands
 {

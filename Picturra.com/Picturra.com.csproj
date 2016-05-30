@@ -379,9 +379,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Picturra.Data\Picturra.Data.csproj">
+      <Project>{d0c867f5-06e3-42ec-844e-8a7f7bad8c58}</Project>
+      <Name>Picturra.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Picturra.Models\Picturra.Models.csproj">
       <Project>{56646EAD-21E4-41B3-BB78-550870291EB6}</Project>
       <Name>Picturra.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Picturra.Presenter\Picturra.Presenter.csproj">
+      <Project>{7AEFEA2E-17CA-4D73-B236-77CE8BF85998}</Project>
+      <Name>Picturra.Presenter</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

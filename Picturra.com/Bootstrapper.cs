@@ -1,7 +1,4 @@
 ﻿using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity.Mvc;
@@ -11,6 +8,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Picturra.com.Controllers;
+using Picturra.Data;
+using Picturra.Data.Contracts;
+using Picturra.Presenter;
+using Picturra.Presenter.Adapters;
+using Picturra.Presenter.Commands;
+using Picturra.Presenter.Contracts;
 
 namespace Picturra.com
 {
@@ -33,6 +36,10 @@ namespace Picturra.com
         private static void RegisteryTypes(UnityContainer container)
         {
             RegisterApplicationIdentity(container);
+            RegisterRepositories(container);
+            RegisterSericeAdapters(container);
+            RegisterCommandHelpers(container);
+            RegisterPresenters(container);
         }
 
         private static void RegisterApplicationIdentity(UnityContainer container)
@@ -54,10 +61,23 @@ namespace Picturra.com
 
         private static void RegisterRepositories(UnityContainer container)
         {
-
+            container.RegisterType<IImageUploadRepository, ImageUploadRepository>(new HierarchicalLifetimeManager());
         }
 
-        
+        private static void RegisterPresenters(UnityContainer container)
+        {
+            container.RegisterType<IUploadPresenter, UploadPresenter>(new HierarchicalLifetimeManager());
+        }
+        private static void RegisterSericeAdapters(UnityContainer container)
+        {
+            container.RegisterType<ICloudinaryAdapter, CloudinaryAdapter>(new HierarchicalLifetimeManager());
+        }
+
+        private static void RegisterCommandHelpers(UnityContainer container)
+        {
+            container.RegisterType<ICommandInvoker, CommandInvoker>(new HierarchicalLifetimeManager());
+        }
+
 
 
     }

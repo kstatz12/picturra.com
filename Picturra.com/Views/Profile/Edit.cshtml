@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div data-bind="template: { name: 'image-template', data: Image }"></div>
+                        <div data-bind="template: { name: 'img-template', data: Profile.Image }"></div>
                     </div>
                 </div>
             </div>
@@ -68,22 +68,53 @@
         </div>
     </div>
 </div>
-
+<pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
 <script type="text/html" id="image-template">
     <div class="form-group">
-        <label data-bind="attr: { for: AttributeId }">Upload</label>
+        <label data-bind="attr: { 'for': AttributeId }">Upload</label>
         <input type="file" class="form-control" data-bind="attr: { id: AttributeId }" />
+        <span class="input-group-btn">
+            <button class="btn btn-secondary" data-bind="click: upload" type="button">Upload</button>
+        </span>
     </div>
     <div class="form-group">
-        <label for="ImageCaption">Caption</label>
-        <textarea class="form-control" data-bind="textInput: Caption"></textarea>
+        <label data-bind="attr: {'for': 'ImageUpload'+AttributeId}">Caption</label>
+        <textarea class="form-control" data-bind="textInput: Caption, attr: { id: 'ImageUpload'+AttributeId}"></textarea>
     </div>
 </script>
+
+<script type="text/html" id="img-template">
+    <div class="row">
+        <div class="col-md-6 col-md-4">
+            <div class="thumbnail">
+                <img data-bind="attr: {src: Url }">
+                <div class="caption">
+                    <div class="form-group">
+                        <label data-bind="attr: {'for': 'ImageName'+AttributeId}">Name</label>
+                        <input type="text" class="form-control" data-bind="textInput: Name, attr: {id: 'ImageName'+AttributeId}" />
+                    </div>
+                    <h3 data-bind="text: Name"></h3>
+                    <div class="form-group">
+                        <label data-bind="attr: { 'for': AttributeId }">Upload</label>
+                        <input type="file" class="form-control" data-bind="attr: { id: AttributeId }, event: {change: upload}" accept="image/*" />
+                    </div>
+                    <div class="form-group">
+                        <label data-bind="attr: {'for': 'ImageUpload'+AttributeId}">Caption</label>
+                        <textarea class="form-control" data-bind="textInput: Caption, attr: { id: 'ImageUpload'+AttributeId}"></textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
 @section Scripts{
     @Scripts.Render("~/bundles/profile");
     <script type="text/javascript">
         $(document).ready(function () {
-            var model = ko.toJSON(@Html.Raw(Json.Encode(Model)));
+            var model = ko.toJS(@Html.Raw(Json.Encode(Model)));
             ko.applyBindings(new ViewModel(model));
         });
     </script>
