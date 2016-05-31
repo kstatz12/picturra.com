@@ -1,6 +1,7 @@
 ﻿var SeriesViewModel = function (id, title, description, titleImage, projects) {
     var self = this;
     self.Id = id;
+    self.uniqueId = guid();
     self.Title = ko.observable(title);
     self.Description = ko.observable(description);
     self.TitleImage = new ImageViewModel(titleImage);

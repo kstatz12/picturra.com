@@ -32,11 +32,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="ProfileNameInput">Profile Name</label>
-                            <input type="text" class="form-control" id="ProfileNameInput" />
+                            <input type="text" data-bind="textInput: Profile.Name"class="form-control" id="ProfileNameInput" />
                         </div>
                         <div class="form-group">
                             <label for="ProfileAboutInput">About</label>
-                            <textarea class="form-control" cols="5" id="ProfileAboutInput"></textarea>
+                            <textarea class="form-control" data-bind="textinput: Profile.About" cols="5" id="ProfileAboutInput"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -49,6 +49,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Portfolio</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="ProfileStatement">Artist's Statement</label>
+                        <textarea id="ProfileStatement" data-bind="textInput: Profile.Portfolio.Statement" class="form-control"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,20 +75,35 @@
     </div>
 </div>
 <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
-<script type="text/html" id="image-template">
-    <div class="form-group">
-        <label data-bind="attr: { 'for': AttributeId }">Upload</label>
-        <input type="file" class="form-control" data-bind="attr: { id: AttributeId }" />
-        <span class="input-group-btn">
-            <button class="btn btn-secondary" data-bind="click: upload" type="button">Upload</button>
-        </span>
-    </div>
-    <div class="form-group">
-        <label data-bind="attr: {'for': 'ImageUpload'+AttributeId}">Caption</label>
-        <textarea class="form-control" data-bind="textInput: Caption, attr: { id: 'ImageUpload'+AttributeId}"></textarea>
+
+<script type="text/html" id="series-template">
+    <div class="row">
+        <div class="form-group">
+            <label data-bind="attr: {'for': 'SeriesTitle'+uniqueId}">Title</label>
+            <input type="text" data-bind="textInput: Title, attr: {id: 'SeriesTitle'+uniqueId}" class="form-control"/>
+        </div>
+        
+        <div class="form-group">
+            <label data-bind="attr: {'for': 'SeriesDescription'+uniqueId}"></label>
+            <input type="text" data-bind="textInput: Description, attr: {id: 'SeriesTemplate'+uniqueId}"/>
+        </div>
+        
+        <div data-bind="template: { name: 'img-template', data: TitleImage }"></div>
     </div>
 </script>
 
+<script type="text/html" id="project-template">
+    <div class="row">
+        <div class="form-group">
+            <label data-bind="attr: {'for': 'ProjectTitle'+uniqueId}">Project Title</label>
+            <input type="text" data-bind="textInput: Title, attr: {id: 'ProjectTitle'+uniqueId}"/>
+        </div>
+        <div class="form-group">
+            <label data-bind="attr: {'for': 'ProjectMedium'+uniqueId}">Medium</label>
+            <input type="text" data-bind="textInput: Medium"/>
+        </div>
+    </div>
+</script>
 <script type="text/html" id="img-template">
     <div class="row">
         <div class="col-md-6 col-md-4">

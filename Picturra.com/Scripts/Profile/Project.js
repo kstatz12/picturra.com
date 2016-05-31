@@ -1,6 +1,7 @@
 ﻿var ProjectViewModel = function (id, title, medium, height, width, year, likeCount, images) {
     var self = this;
     self.Id = id;
+    self.uniqueId = guid();
     self.Title = ko.observable(title);
     self.Medium = ko.observable(medium);
     self.Height = ko.observable(height);

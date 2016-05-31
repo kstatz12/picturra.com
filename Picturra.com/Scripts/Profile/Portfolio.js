@@ -1,4 +1,4 @@
-﻿var PortofolioViewModel = function (id, statement, seriesCollection) {
+﻿var PortfolioViewModel = function (id, statement, seriesCollection) {
     var self = this;
     self.Id = id;
     self.Statement = ko.observable(statement);
