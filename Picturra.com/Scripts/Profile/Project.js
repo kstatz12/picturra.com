@@ -15,7 +15,7 @@
 
     self.AddImage = function () {
         if (images.length <= 3) {
-            Images.push(new ImageViewModel('', '', '', '', guid()));
+            self.Images.push(new ImageViewModel('', '', '', '', guid()));
         }
     }
 

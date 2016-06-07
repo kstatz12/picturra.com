@@ -5,7 +5,7 @@
     self.Title = ko.observable(title);
     self.Description = ko.observable(description);
     self.TitleImage = new ImageViewModel(titleImage);
-    self.Projects = observableArray(ko.utils.arrayMap(projects, function(project) {
+    self.Projects = ko.observableArray(ko.utils.arrayMap(projects, function(project) {
         return new ProjectViewModel(project.Id, project.Title, project.Medium, project.Height, project.Width, project.Year, project.LikeCount, project.Images);
     }));
 

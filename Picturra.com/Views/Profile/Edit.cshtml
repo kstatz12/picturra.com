@@ -55,6 +55,8 @@
                         <label for="ProfileStatement">Artist's Statement</label>
                         <textarea id="ProfileStatement" data-bind="textInput: Profile.Portfolio.Statement" class="form-control"></textarea>
                     </div>
+                    <button class="btn btn-success" data-bind="click: Profile.Portfolio.AddSeries">Add Series</button>
+                    <div data-bind="template: {name: 'series-template', foreach: Profile.Portfolio.SeriesCollection}"></div>
                 </div>
             </div>
         </div>
@@ -78,30 +80,64 @@
 
 <script type="text/html" id="series-template">
     <div class="row">
-        <div class="form-group">
-            <label data-bind="attr: {'for': 'SeriesTitle'+uniqueId}">Title</label>
-            <input type="text" data-bind="textInput: Title, attr: {id: 'SeriesTitle'+uniqueId}" class="form-control"/>
+        <h3 data-bind="text: 'Series'+$index()"></h3>
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'SeriesTitle'+uniqueId}">Series Title</label>
+                <input type="text" data-bind="textInput: Title, attr: {id: 'SeriesTitle'+uniqueId}" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'SeriesDescription'+uniqueId}">Series Description</label>
+                <textarea data-bind="textInput: Description, attr: {id: 'SeriesTemplate'+uniqueId}" cols="5" rows="5" class="form-control" ></textarea>
+            </div>
         </div>
-        
-        <div class="form-group">
-            <label data-bind="attr: {'for': 'SeriesDescription'+uniqueId}"></label>
-            <input type="text" data-bind="textInput: Description, attr: {id: 'SeriesTemplate'+uniqueId}"/>
+        <button class="btn btn-danger" style="float: right;" data-bind="click: $parent.Profile.Portfolio.RemoveSeries">Remove Series</button>
+        <label data-bind="attr: {'for': 'SeriesTitleImage'+uniqueId}">Series Title Image</label>
+        <div class="col-md-6">
+            <div data-bind="template: { name: 'img-template', data: TitleImage }, attr: {id: 'SeriesTitleImage'+uniqueId}"></div>
+            <button class="btn btn-success" data-bind="click: AddProject">Add Project</button>
+
         </div>
-        
-        <div data-bind="template: { name: 'img-template', data: TitleImage }"></div>
+        <div data-bind="template: { name: 'project-template', foreach: Projects }"></div>
     </div>
 </script>
 
+<script type="text/html">
+    
+</script>
 <script type="text/html" id="project-template">
     <div class="row">
-        <div class="form-group">
-            <label data-bind="attr: {'for': 'ProjectTitle'+uniqueId}">Project Title</label>
-            <input type="text" data-bind="textInput: Title, attr: {id: 'ProjectTitle'+uniqueId}"/>
+        <div class="col-md-6">
+            <button class="btn btn-danger" data-bind="click: $parent.RemoveProject">Remove Project</button>
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'ProjectTitle'+uniqueId}">Project Title</label>
+                <input type="text" class="form-control" data-bind="textInput: Title, attr: {id: 'ProjectTitle'+uniqueId}" />
+            </div>
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'ProjectMedium'+uniqueId}">Medium</label>
+                <input type="text" class="form-control" data-bind="textInput: Medium, attr: {id: 'ProjectMedium'+uniqueId}" />
+            </div>
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'ProjectHeight'+uniqueId}">Height (inches)</label>
+                <input type="text" data-bind="textInput: Height, attr: {id: 'ProjectHeight'+uniqueId}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'ProjectWidth'+uniqueId}">Width (inches)</label>
+                <input type="text" class="form-control" data-bind="textInput: Width, attr: {id: 'ProjectWidth'+uniqueId}" />
+            </div>
+            <div class="form-group">
+                <label data-bind="attr: {'for': 'ProjectYear'+uniqueId}">Year</label>
+                <input type="text" class="form-control" data-bind="value: Year, attr: {id: 'ProjectYear'+uniqueId}" />
+            </div>
         </div>
-        <div class="form-group">
-            <label data-bind="attr: {'for': 'ProjectMedium'+uniqueId}">Medium</label>
-            <input type="text" data-bind="textInput: Medium"/>
+
+        <div class="col-md-6">
+            <button class="btn btn-success" data-bind="click: AddImage"></button>
+            <div data-bind="template: { name: 'img-template', foreach: Images }"></div>
         </div>
+
     </div>
 </script>
 <script type="text/html" id="img-template">
