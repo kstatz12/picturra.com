@@ -14,12 +14,12 @@
     }));
 
     self.AddImage = function () {
-        if (images.length <= 3) {
-            self.Images.push(new ImageViewModel('', '', '', '', guid()));
+        if (self.Images().length < 3) {
+            self.Images.push(new ImageViewModel('', '', '', '', ''));
         }
     }
 
     self.RemoveImage = function (image) {
-        Images.remove(image);
+        self.Images.remove(image);
     }
 }

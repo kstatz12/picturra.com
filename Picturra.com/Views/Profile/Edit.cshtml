@@ -22,7 +22,7 @@
         </li>
     </ul>
 
-    <div class="tab-content ">
+    <div class="tab-content">
         <div class="tab-pane active" id="1">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -104,66 +104,91 @@
     </div>
 </script>
 
-<script type="text/html">
-    
+<script type="text/html" id="contact-template">
+  <div class="row">
+  </div>
 </script>
 <script type="text/html" id="project-template">
-    <div class="row">
-        <div class="col-md-6">
-            <button class="btn btn-danger" data-bind="click: $parent.RemoveProject">Remove Project</button>
-            <div class="form-group">
-                <label data-bind="attr: {'for': 'ProjectTitle'+uniqueId}">Project Title</label>
-                <input type="text" class="form-control" data-bind="textInput: Title, attr: {id: 'ProjectTitle'+uniqueId}" />
-            </div>
-            <div class="form-group">
-                <label data-bind="attr: {'for': 'ProjectMedium'+uniqueId}">Medium</label>
-                <input type="text" class="form-control" data-bind="textInput: Medium, attr: {id: 'ProjectMedium'+uniqueId}" />
-            </div>
-            <div class="form-group">
-                <label data-bind="attr: {'for': 'ProjectHeight'+uniqueId}">Height (inches)</label>
-                <input type="text" data-bind="textInput: Height, attr: {id: 'ProjectHeight'+uniqueId}" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label data-bind="attr: {'for': 'ProjectWidth'+uniqueId}">Width (inches)</label>
-                <input type="text" class="form-control" data-bind="textInput: Width, attr: {id: 'ProjectWidth'+uniqueId}" />
-            </div>
-            <div class="form-group">
-                <label data-bind="attr: {'for': 'ProjectYear'+uniqueId}">Year</label>
-                <input type="text" class="form-control" data-bind="value: Year, attr: {id: 'ProjectYear'+uniqueId}" />
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-danger" data-bind="click: $parent.RemoveProject">Remove Project</button>
+      <div class="form-group">
+        <label data-bind="attr: {'for': 'ProjectTitle'+uniqueId}">Project Title</label>
+        <input type="text" class="form-control" data-bind="textInput: Title, attr: {id: 'ProjectTitle'+uniqueId}"/>
+      </div>
+      <div class="form-group">
+        <label data-bind="attr: {'for': 'ProjectMedium'+uniqueId}">Medium</label>
+        <input type="text" class="form-control" data-bind="textInput: Medium, attr: {id: 'ProjectMedium'+uniqueId}"/>
+      </div>
+      <div class="form-group">
+        <label data-bind="attr: {'for': 'ProjectHeight'+uniqueId}">Height (inches)</label>
+        <input type="text" data-bind="textInput: Height, attr: {id: 'ProjectHeight'+uniqueId}" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label data-bind="attr: {'for': 'ProjectWidth'+uniqueId}">Width (inches)</label>
+        <input type="text" class="form-control" data-bind="textInput: Width, attr: {id: 'ProjectWidth'+uniqueId}"/>
+      </div>
+      <div class="form-group">
+        <label data-bind="attr: {'for': 'ProjectYear'+uniqueId}">Year</label>
+        <input type="text" class="form-control" data-bind="value: Year, attr: {id: 'ProjectYear'+uniqueId}"/>
+      </div>
+    </div>
 
-        <div class="col-md-6">
-            <button class="btn btn-success" data-bind="click: AddImage"></button>
-            <div data-bind="template: { name: 'img-template', foreach: Images }"></div>
-        </div>
+    <div class="col-md-6">
+      <button class="btn btn-success" data-bind="click: AddImage">Add Image</button>
+      <div data-bind="template: { name: 'imgCollection-template', foreach: Images }"></div>
+    </div>
 
+  </div>
+</script>
+<script type="text/html" id="imgCollection-template">
+    <div class="col-md-6 col-md-4">
+      <div class="thumbnail">
+        <img data-bind="attr: {src: Url }">
+        <div class="caption">
+          <div class="form-group">
+            <label data-bind="attr: {'for': 'ImageName'+uniqueId}">Name</label>
+            <input type="text" class="form-control" data-bind="textInput: Name, attr: {id: 'ImageName'+AttributeId}"/>
+          </div>
+          <h3 data-bind="text: Name"></h3>
+          <div class="form-group">
+            <label data-bind="attr: { 'for': uniqueId}">Upload</label>
+            <input type="file" class="form-control" data-bind="attr: { id: uniqueId }, event: {change: upload}" accept="image/*"/>
+          </div>
+          <div class="form-group">
+            <label data-bind="attr: {'for': 'ImageUpload'+uniqueId}">Caption</label>
+            <textarea class="form-control" data-bind="textInput: Caption, attr: { id: 'ImageUpload'+uniqueId}"></textarea>
+          </div>
+          <button class="btn btn-danger" data-bind="click: $parent.RemoveImage">Remove Image</button>
+        </div>
+      </div>
     </div>
 </script>
 <script type="text/html" id="img-template">
-    <div class="row">
-        <div class="col-md-6 col-md-4">
-            <div class="thumbnail">
-                <img data-bind="attr: {src: Url }">
-                <div class="caption">
-                    <div class="form-group">
-                        <label data-bind="attr: {'for': 'ImageName'+AttributeId}">Name</label>
-                        <input type="text" class="form-control" data-bind="textInput: Name, attr: {id: 'ImageName'+AttributeId}" />
-                    </div>
-                    <h3 data-bind="text: Name"></h3>
-                    <div class="form-group">
-                        <label data-bind="attr: { 'for': AttributeId }">Upload</label>
-                        <input type="file" class="form-control" data-bind="attr: { id: AttributeId }, event: {change: upload}" accept="image/*" />
-                    </div>
-                    <div class="form-group">
-                        <label data-bind="attr: {'for': 'ImageUpload'+AttributeId}">Caption</label>
-                        <textarea class="form-control" data-bind="textInput: Caption, attr: { id: 'ImageUpload'+AttributeId}"></textarea>
-                    </div>
+  <div class="row">
+    <div class="col-md-6 col-md-4">
+      <div class="thumbnail">
+        <img data-bind="attr: {src: Url }">
+        <div class="caption">
+          <div class="form-group">
+            <label data-bind="attr: {'for': 'ImageName'+uniqueId}">Name</label>
+            <input type="text" class="form-control" data-bind="textInput: Name, attr: {id: 'ImageName'+uniqueId}"/>
+          </div>
+          <h3 data-bind="text: Name"></h3>
+          <div class="form-group">
+            <label data-bind="attr: { 'for': uniqueId }">Upload</label>
+            <input type="file" class="form-control" data-bind="attr: { id: uniqueId }, event: {change: upload}" accept="image/*"/>
+          </div>
+          <div class="form-group">
+            <label data-bind="attr: {'for': 'ImageUpload'+uniqueId}">Caption</label>
+            <textarea class="form-control" data-bind="textInput: Caption, attr: { id: 'ImageUpload'+uniqueId}"></textarea>
+          </div>
 
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
+
 </script>
 
 
