@@ -42,7 +42,8 @@ namespace Picturra.com
                     "~/Scripts/Profile/Portfolio.js",
                     "~/Scripts/Profile/Profile.js",
                     "~/Scripts/Profile/Project.js",
-                    "~/Scripts/Profile/Series.js"
+                    "~/Scripts/Profile/Series.js",
+                    "~/Scripts/Profile/Contact.js"
                 ));
         }
     }

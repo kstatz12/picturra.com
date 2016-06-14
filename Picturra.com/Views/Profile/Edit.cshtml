@@ -4,21 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
-
 <div id="exTab2" class="container">
     <ul class="nav nav-tabs">
         <li class="active">
             <a href="#1" data-toggle="tab">Profile</a>
         </li>
         <li>
-            <a href="#2" data-toggle="tab">Portfolio</a>
+            <a href="#2" data-toggle="tab" data-bind="click: LoadPortfolio">Portfolio</a>
         </li>
         <li>
-            <a href="#3" data-toggle="tab">Contact</a>
+            <a href="#3" data-toggle="tab" data-bind="click: LoadContactInformation">Contact</a>
         </li>
         <li>
-            <a href="#4" data-toggle="tab">Order History</a>
+            <a href="#4" data-toggle="tab" data-bind="click: LoadOrderHistory">Order History</a>
         </li>
     </ul>
 
@@ -42,6 +40,7 @@
                     <div class="col-md-6">
                         <div data-bind="template: { name: 'img-template', data: Profile.Image }"></div>
                     </div>
+                    <button class="btn btn-success" data-bind="click: Profile.save">Save Profile</button>
                 </div>
             </div>
         </div>
@@ -65,6 +64,13 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Contact Information</h3>
                 </div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div data-bind="template: {name: 'contact-template', data: ContactInformation }"></div>
+                    </div>
+                    
+                </div>
+               
             </div>
         </div>           
         <div class="tab-pane" id="4">
@@ -78,6 +84,26 @@
 </div>
 <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
 
+<script type="text/html" id="contact-template">
+    <div class="row">
+        <div class="form-group">
+            <label for="ContactEmail">Email</label>
+            <input type="text" class="form-control" id="ContactEmail" data-bind="textInput: Email" />
+        </div>
+        <div class="form-group">
+            <label for="ContactPhone">Phone</label>
+            <input type="text" class="form-control" id="ContactPhone" data-bind="textInput: Phone"/>
+        </div>
+        <div class="form-group">
+            <label for="ContactAddressOne">Address</label>
+            <input type="text" class="form-control" id="ContactAddressOne" data-bind="textInput: AddressOne"/>
+        </div>
+        <div class="form-group">
+            <label for="ContactAddressTwo">Address Two</label>
+            <input type="text" class="form-control" id="ContactAddressTwo" data-bin="textInput: AddressTwo" />
+        </div>
+    </div>
+</script>
 <script type="text/html" id="series-template">
     <div class="row">
         <h3 data-bind="text: 'Series'+$index()"></h3>
