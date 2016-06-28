@@ -2,7 +2,7 @@
 
 namespace Picturra.Models.Profile
 {
-    public class Series
+    public class Series : IModelBase<int>
     {
         public Series()
         {

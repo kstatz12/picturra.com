@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Picturra.Models.Image
 {
-    public class Image
+    public class Image : IModelBase<int>
     {
         public int Id { get; set; }
         public string Url { get; set; }

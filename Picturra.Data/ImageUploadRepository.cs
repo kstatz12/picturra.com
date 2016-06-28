@@ -6,23 +6,23 @@ using System.Data.SqlClient;
 
 namespace Picturra.Data
 {
-    public class ImageUploadRepository : IImageUploadRepository
+    public class ImageUploadRepository : IImageUploadRepository<ImageUpload, int>
     {
         public SqlConnection SqlConnection { get; set; }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public ImageUpload Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public int Set(ImageUpload entity)
+        public void Save(ImageUpload entity)
         {
-            return 0;
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

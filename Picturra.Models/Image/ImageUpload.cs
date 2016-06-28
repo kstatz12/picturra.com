@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Picturra.Models.Image
 {
-    public class ImageUpload
+    public class ImageUpload : IModelBase<int>
     { 
         public int Id { get; set; }
         public string Ip { get; set; }

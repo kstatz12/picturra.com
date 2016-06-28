@@ -3,7 +3,7 @@
 
 namespace Picturra.Models.Profile
 {
-    public class Porftolio
+    public class Porftolio : IModelBase<int>
     {
         public int Id { get; set; }
         public string Statement { get; set; }

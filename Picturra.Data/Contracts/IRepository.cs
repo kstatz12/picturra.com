@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Picturra.Data.Contracts
 {
-    public interface IRepository<TEntity, TId>
+    public interface IRepository
     {
         SqlConnection SqlConnection { get; set; }
-        TId Set(TEntity entity);
-        TEntity Get(TId id);
     }
 }

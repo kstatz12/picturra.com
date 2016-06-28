@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.com", "Picturra.com\Picturra.com.csproj", "{ACDA75E3-88A1-4C90-A733-B40896B516E5}"
 EndProject
@@ -22,6 +22,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.Models", "Picturra.Models\Picturra.Models.csproj", "{56646EAD-21E4-41B3-BB78-550870291EB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.Data", "Picturra.Data\Picturra.Data.csproj", "{D0C867F5-06E3-42EC-844E-8A7F7BAD8C58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Picturra.com", "Service.Picturra.com\Service.Picturra.com\Service.Picturra.com.csproj", "{4389B305-B381-4B50-B1A8-BBB5259A0524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Picturra.com.ServiceModel", "Service.Picturra.com\Service.Picturra.com.ServiceModel\Service.Picturra.com.ServiceModel.csproj", "{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Picturra.com.ServiceInterface", "Service.Picturra.com\Service.Picturra.com.ServiceInterface\Service.Picturra.com.ServiceInterface.csproj", "{801A0F89-D5F6-49A6-BCEA-6624388C98A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Picturra.com.Tests", "Service.Picturra.com\Service.Picturra.com.Tests\Service.Picturra.com.Tests.csproj", "{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{7FD0BAB5-E658-4CAA-A84A-EF0C3178007A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.Helpers.cs", "Picturra.Helpers.cs\Picturra.Helpers.cs.csproj", "{00452E98-BB37-406E-885F-96A54B81E570}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +61,26 @@ Global
 		{D0C867F5-06E3-42EC-844E-8A7F7BAD8C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0C867F5-06E3-42EC-844E-8A7F7BAD8C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0C867F5-06E3-42EC-844E-8A7F7BAD8C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4389B305-B381-4B50-B1A8-BBB5259A0524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4389B305-B381-4B50-B1A8-BBB5259A0524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4389B305-B381-4B50-B1A8-BBB5259A0524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4389B305-B381-4B50-B1A8-BBB5259A0524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801A0F89-D5F6-49A6-BCEA-6624388C98A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00452E98-BB37-406E-885F-96A54B81E570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00452E98-BB37-406E-885F-96A54B81E570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00452E98-BB37-406E-885F-96A54B81E570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00452E98-BB37-406E-885F-96A54B81E570}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,5 +91,10 @@ Global
 		{7AEFEA2E-17CA-4D73-B236-77CE8BF85998} = {E4E40C06-FE1E-408A-AACD-4399F77919F3}
 		{56646EAD-21E4-41B3-BB78-550870291EB6} = {2A7986A6-068C-4A59-B8A3-4FE4F935998D}
 		{D0C867F5-06E3-42EC-844E-8A7F7BAD8C58} = {F76655DE-92D0-4675-9AAD-4373B17F4C29}
+		{4389B305-B381-4B50-B1A8-BBB5259A0524} = {C902B365-2CDA-466B-AB94-56D60D60B87B}
+		{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40} = {C902B365-2CDA-466B-AB94-56D60D60B87B}
+		{801A0F89-D5F6-49A6-BCEA-6624388C98A4} = {C902B365-2CDA-466B-AB94-56D60D60B87B}
+		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00} = {C902B365-2CDA-466B-AB94-56D60D60B87B}
+		{00452E98-BB37-406E-885F-96A54B81E570} = {7FD0BAB5-E658-4CAA-A84A-EF0C3178007A}
 	EndGlobalSection
 EndGlobal

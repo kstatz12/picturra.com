@@ -3,13 +3,17 @@
     self.Profile = new ProfileViewModel(model.Id, model.Name, model.About, model.Image, model.Portfolio);
     self.ContactInformation = new ContactViewModel('', '', '', '');
     self.Portfolio = new PortfolioViewModel('', '', []);
-    self.LoadPortfolio = function () {
 
+    self.LoadPortfolio = function () {
+        var portfolio;
+        if (self.Portfolio().Id) {
+            
+        }
     }
 
     self.LoadContactInformation = function () {
         var contactInformation;
-        if (self.ContactInformation.Id()) {
+        if (!self.ContactInformation.Id()) {
             $.get("Contact/GetContactInformation", function (data, status) {
                 contactInformation = data;
             });

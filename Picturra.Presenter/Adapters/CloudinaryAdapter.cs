@@ -14,8 +14,8 @@ namespace Picturra.Presenter.Adapters
 {
     public class CloudinaryAdapter : ICloudinaryAdapter
     {
-        private readonly IImageUploadRepository _imageUploadRepository;
-        public CloudinaryAdapter(IImageUploadRepository imageUploadRepository)
+        private readonly IImageUploadRepository<ImageUpload, int> _imageUploadRepository;
+        public CloudinaryAdapter(IImageUploadRepository<ImageUpload, int> imageUploadRepository)
         {
             Credentials = CloudinaryAccountFactory.Create();
             _imageUploadRepository = imageUploadRepository;

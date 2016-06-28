@@ -38,6 +38,10 @@
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -50,8 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\CloudinaryAdapter.cs" />
+    <Compile Include="Adapters\ContactServiceAdapter.cs" />
     <Compile Include="Adapters\Helpers\CloudinaryAccountFactory.cs" />
     <Compile Include="Adapters\ICloudinaryAdapter.cs" />
+    <Compile Include="Adapters\IContactServiceAdapter.cs" />
+    <Compile Include="Adapters\IServiceAdapter.cs" />
     <Compile Include="CommandInvoker.cs" />
     <Compile Include="Commands\DeleteImage.cs" />
     <Compile Include="Commands\ICommand.cs" />
@@ -67,9 +74,17 @@
       <Project>{d0c867f5-06e3-42ec-844e-8a7f7bad8c58}</Project>
       <Name>Picturra.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Picturra.Helpers.cs\Picturra.Helpers.cs.csproj">
+      <Project>{00452E98-BB37-406E-885F-96A54B81E570}</Project>
+      <Name>Picturra.Helpers.cs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Picturra.Models\Picturra.Models.csproj">
       <Project>{56646ead-21e4-41b3-bb78-550870291eb6}</Project>
       <Name>Picturra.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service.Picturra.com\Service.Picturra.com.ServiceModel\Service.Picturra.com.ServiceModel.csproj">
+      <Project>{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}</Project>
+      <Name>Service.Picturra.com.ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

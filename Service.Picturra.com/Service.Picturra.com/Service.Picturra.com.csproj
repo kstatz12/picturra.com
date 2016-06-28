@@ -42,31 +42,31 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="ServiceStack">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.4.0.32\lib\net40\ServiceStack.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.4.0.60\lib\net40\ServiceStack.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Client">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Client.4.0.32\lib\net40\ServiceStack.Client.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Client.4.0.60\lib\net40\ServiceStack.Client.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Common">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Common.4.0.32\lib\net40\ServiceStack.Common.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Common.4.0.60\lib\net40\ServiceStack.Common.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Interfaces">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Interfaces.4.0.32\lib\portable-wp80+sl5+net40+win8+monotouch+monoandroid\ServiceStack.Interfaces.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Interfaces.4.0.60\lib\portable-wp80+sl5+net40+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.OrmLite">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.OrmLite.4.0.32\lib\net40\ServiceStack.OrmLite.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.OrmLite.4.0.60\lib\net45\ServiceStack.OrmLite.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Razor">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Razor.4.0.32\lib\net45\ServiceStack.Razor.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Razor.4.0.60\lib\net45\ServiceStack.Razor.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Redis">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Redis.4.0.32\lib\net40\ServiceStack.Redis.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Redis.4.0.60\lib\net40\ServiceStack.Redis.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Server">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Server.4.0.32\lib\net40\ServiceStack.Server.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Server.4.0.60\lib\net45\ServiceStack.Server.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text">
-      <HintPath>$(SolutionDir)\packages\ServiceStack.Text.4.0.32\lib\net40\ServiceStack.Text.dll</HintPath>
+      <HintPath>..\..\packages\ServiceStack.Text.4.0.60\lib\net40\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -78,6 +78,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\ServiceStack.Razor.4.0.60\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -128,12 +132,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>60973</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:60973/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

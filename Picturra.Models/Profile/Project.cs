@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 namespace Picturra.Models.Profile
 {
-    public class Project
+    public class Project : IModelBase<int>
     {
         public Project()
         {
