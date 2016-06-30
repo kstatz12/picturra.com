@@ -9,6 +9,5 @@ namespace Picturra.Data.Contracts
 {
     public interface IRepository
     {
-        SqlConnection SqlConnection { get; set; }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using System;
 using Picturra.Models;
+using Picturra.Models.Profile;
 
 namespace Picturra.Data.Contracts
 {
-    public interface IContactRepository<T, in TId> : IRepository where T : IModelBase<TId>
+    public interface IContactRepository : IReadRepository<ContactInformation, int>, IWriteRepository<ContactInformation, int>
     {
-        T GetContact(TId id);
-        T GetContactByLoginId(Guid loginId);
-        void UpdateContact(T entity);
-        void DeleteContact(TId id);
+        ContactInformation GetContactByLoginId(Guid loginId);
+        void DeleteContactByLoginId(Guid id);
     }
 }
