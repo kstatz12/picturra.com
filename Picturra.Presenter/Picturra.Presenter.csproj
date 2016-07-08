@@ -11,6 +11,8 @@
     <AssemblyName>Picturra.Presenter</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +80,14 @@
       <Project>{00452E98-BB37-406E-885F-96A54B81E570}</Project>
       <Name>Picturra.Helpers.cs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Picturra.Models.Data\Picturra.Models.Data.csproj">
+      <Project>{e2b0a36f-690c-4209-908f-49442e2a7a23}</Project>
+      <Name>Picturra.Models.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Picturra.Models.Helpers\Picturra.Models.Helpers.csproj">
+      <Project>{2993b032-d973-4b15-889f-30cdb03a1110}</Project>
+      <Name>Picturra.Models.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Picturra.Models\Picturra.Models.csproj">
       <Project>{56646ead-21e4-41b3-bb78-550870291eb6}</Project>
       <Name>Picturra.Models</Name>
@@ -91,6 +101,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Picturra.Data.Model")]
+[assembly: AssemblyTitle("Picturra.Models.Helpers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Picturra.Data.Model")]
+[assembly: AssemblyProduct("Picturra.Models.Helpers")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9c03a0cc-e74a-436c-af97-df400a1c88ab")]
+[assembly: Guid("b9485603-33bb-4853-82cc-adc8f44fe632")]
 
 // Version information for an assembly consists of the following four values:
 //

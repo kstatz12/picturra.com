@@ -1,9 +1,9 @@
 ﻿using System;
 using Picturra.Helpers.cs;
+using Picturra.Models.Helpers;
 using Picturra.Models.Profile;
 using RestSharp;
 using Service.Picturra.com.ServiceModel;
-using Picturra.Models.Mappings;
 namespace Picturra.Presenter.Adapters
 {
     public class ContactServiceAdapter : IContactServiceAdapter
@@ -16,36 +16,36 @@ namespace Picturra.Presenter.Adapters
             _client = new RestClient { BaseUrl = new Uri(baseUrl) };
         }
 
-        public ContactInformation Get(Guid id)
+        public Contact Get(Guid id)
         {
             var request = new RestRequest("Contact/{LoginId}", Method.GET);
             request.AddParameter("LoginId", id);
             return _client.Execute<ContactResponse>(request).Data
-                          .ToContactInformation();
+                          .ToContact();
         }
 
-        public ContactInformation Get(int id)
+        public Contact Get(int id)
         {
             var request = new RestRequest("Contact/{Id}", Method.GET);
             request.AddParameter("Id", id);
             return _client.Execute<ContactResponse>(request).Data
-                          .ToContactInformation();
+                          .ToContact();
         }
 
-        public ContactInformation Update(ContactInformation entity)
+        public Contact Update(Contact entity)
         {
             var req = string.Format("Contact/");
             var request = new RestRequest(req, Method.PUT)
             {
                 RequestFormat = DataFormat.Json,
             };
-            var postBody = entity.ToContactResponse();
+            var postBody = entity;
             request.AddBody(postBody);
             return _client.Execute<ContactResponse>(request).Data
-                          .ToContactInformation();
+                          .ToContact();
         }
 
-        public ContactInformation Create(ContactInformation entity)
+        public Contact Create(Contact entity)
         {
             var request = new RestRequest("Contact/", Method.POST)
             {
@@ -54,7 +54,7 @@ namespace Picturra.Presenter.Adapters
             var postBody = entity.ToContactResponse();
             request.AddBody(postBody);
             return _client.Execute<ContactResponse>(request).Data
-                          .ToContactInformation();
+                          .ToContact();
         }
 
         public void Delete(int id)

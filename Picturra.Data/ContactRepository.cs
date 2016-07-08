@@ -1,39 +1,39 @@
 ﻿using System;
-using System.CodeDom;
 using System.Data;
-using System.Linq;
 using Picturra.Data.Contracts;
-using Picturra.Data.Model;
-using Picturra.Models.Profile;
-using Picturra.Data.Model.Mapping;
+using Picturra.Models.Helpers;
 using ServiceStack.OrmLite;
+
 namespace Picturra.Data
 {
     public class ContactRepository : IContactRepository
     {
+        public OrmLiteConnectionFactory DbFactory { get; set; }
+
         private readonly IDbConnection _connection;
-
-        public ContactRepository(IDbConnection connection)
+        public ContactRepository(OrmLiteConnectionFactory dbFactory)
         {
-            _connection = connection;
+            DbFactory = dbFactory;
+            _connection = dbFactory.CreateDbConnection();
         }
-        public ContactInformation Get(int id)
+        public Models.Profile.Contact Get(int id)
         {
-            var contact = _connection.Single<Contact>(x => x.Id == id);
-            return contact != null ? contact.ToContactInformation() : new ContactInformation();
+            var contact = _connection.Single<Models.Data.Contact>(x => x.Id == id);
+            
+            return contact != null ? contact.ToContact() : new Models.Profile.Contact();
         }
 
-        public ContactInformation Save(ContactInformation entity)
+        public Models.Profile.Contact Save(Models.Profile.Contact entity)
         {
             var contact = entity.ToContact();
-            _connection.Insert<Contact>(contact);
+            _connection.Insert(contact);
             return entity;
         }
 
-        public ContactInformation Update(ContactInformation entity)
+        public Models.Profile.Contact Update(Models.Profile.Contact entity)
         {
             var contact = entity.ToContact();
-            _connection.Update<Contact>(contact);
+            _connection.Update(contact);
             return entity;
         }
 
@@ -42,15 +42,17 @@ namespace Picturra.Data
             _connection.Delete(id);
         }
 
-        public ContactInformation GetContactByLoginId(Guid loginId)
+        public Models.Profile.Contact GetContactByLoginId(Guid loginId)
         {
-            var contact = _connection.Single<Contact>(x => x.LoginId == loginId);
-            return contact != null ? contact.ToContactInformation() : new ContactInformation();
+            var contact = _connection.Single<Models.Data.Contact>(x => x.LoginId == loginId);
+            return contact != null ? contact.ToContact() : new Models.Profile.Contact();
         }
 
         public void DeleteContactByLoginId(Guid id)
         {
             _connection.Delete(id);
         }
+
+
     }
 }

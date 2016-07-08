@@ -29,8 +29,10 @@ namespace Service.Picturra.com.ServiceModel
         public int Id { get; set; }
         public Guid LoginId { get; set; }
         public string Phone { get; set; }
-        public string AddressOne { get; set; }
-        public string AddressTwo { get; set; }
+        public string EmailAddress { get; set; }
+        public string Twitter { get; set; }
+        public string Instagram { get; set; }
+        public string Facebook { get; set; }
     }
 
     [Route("/Contact/{Id}", "DELETE")]
@@ -44,7 +46,9 @@ namespace Service.Picturra.com.ServiceModel
         public int Id { get; set; }
         public Guid LoginId { get; set; }
         public string Phone { get; set; }
-        public string AddressOne { get; set; }
-        public string AddressTwo { get; set; }
+        public string EmailAddress { get; set; }
+        public string Twitter { get; set; }
+        public string Instagram { get; set; }
+        public string Facebook { get; set; }
     }
 }

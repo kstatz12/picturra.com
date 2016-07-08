@@ -35,6 +35,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{7FD0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.Helpers.cs", "Picturra.Helpers.cs\Picturra.Helpers.cs.csproj", "{00452E98-BB37-406E-885F-96A54B81E570}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7F0C15BF-28FD-4EF5-88FF-307239472D5B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.Models.Data", "Picturra.Models.Data\Picturra.Models.Data.csproj", "{E2B0A36F-690C-4209-908F-49442E2A7A23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturra.Models.Helpers", "Picturra.Models.Helpers\Picturra.Models.Helpers.csproj", "{2993B032-D973-4B15-889F-30CDB03A1110}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +92,14 @@ Global
 		{00452E98-BB37-406E-885F-96A54B81E570}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00452E98-BB37-406E-885F-96A54B81E570}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00452E98-BB37-406E-885F-96A54B81E570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2B0A36F-690C-4209-908F-49442E2A7A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2B0A36F-690C-4209-908F-49442E2A7A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2B0A36F-690C-4209-908F-49442E2A7A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2B0A36F-690C-4209-908F-49442E2A7A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2993B032-D973-4B15-889F-30CDB03A1110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2993B032-D973-4B15-889F-30CDB03A1110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2993B032-D973-4B15-889F-30CDB03A1110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2993B032-D973-4B15-889F-30CDB03A1110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,5 +115,7 @@ Global
 		{801A0F89-D5F6-49A6-BCEA-6624388C98A4} = {C902B365-2CDA-466B-AB94-56D60D60B87B}
 		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00} = {C902B365-2CDA-466B-AB94-56D60D60B87B}
 		{00452E98-BB37-406E-885F-96A54B81E570} = {7FD0BAB5-E658-4CAA-A84A-EF0C3178007A}
+		{E2B0A36F-690C-4209-908F-49442E2A7A23} = {2A7986A6-068C-4A59-B8A3-4FE4F935998D}
+		{2993B032-D973-4B15-889F-30CDB03A1110} = {2A7986A6-068C-4A59-B8A3-4FE4F935998D}
 	EndGlobalSection
 EndGlobal

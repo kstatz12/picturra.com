@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using System.Data.Entity.Infrastructure;
+using Microsoft.Practices.Unity;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity.Mvc;
@@ -10,10 +11,16 @@ using Microsoft.Owin.Security;
 using Picturra.com.Controllers;
 using Picturra.Data;
 using Picturra.Data.Contracts;
+using Picturra.Helpers.cs;
+using Picturra.Models.Profile;
 using Picturra.Presenter;
 using Picturra.Presenter.Adapters;
 using Picturra.Presenter.Commands;
 using Picturra.Presenter.Contracts;
+using ServiceStack;
+using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.SqlServer;
+using IDbConnectionFactory = ServiceStack.Data.IDbConnectionFactory;
 
 namespace Picturra.com
 {
@@ -40,6 +47,7 @@ namespace Picturra.com
             RegisterSericeAdapters(container);
             RegisterCommandHelpers(container);
             RegisterPresenters(container);
+
         }
 
         private static void RegisterApplicationIdentity(UnityContainer container)
@@ -59,10 +67,6 @@ namespace Picturra.com
 
         }
 
-        private static void RegisterRepositories(UnityContainer container)
-        {
-            container.RegisterType<IImageUploadRepository, ImageUploadRepository>(new HierarchicalLifetimeManager());
-        }
 
         private static void RegisterPresenters(UnityContainer container)
         {
@@ -76,6 +80,26 @@ namespace Picturra.com
         private static void RegisterCommandHelpers(UnityContainer container)
         {
             container.RegisterType<ICommandInvoker, CommandInvoker>(new HierarchicalLifetimeManager());
+        }
+
+        private static void RegisterRepositories(UnityContainer container)
+        {
+            var connectionString = ConfigurationHelper.GetPicturraConnectionString();
+            var connectionFactory = new OrmLiteConnectionFactory(connectionString, SqlServerDialect.Provider);
+
+            var connectionFactoryConstructor = new InjectionConstructor(connectionFactory);
+
+            container.RegisterType<IContactRepository, ContactRepository>(connectionFactoryConstructor);
+
+            ConfigureDb(connectionFactory);
+        }
+
+        private static void ConfigureDb(IDbConnectionFactory connectionFactory)
+        {
+            using (var db = connectionFactory.Open())
+            {
+                db.CreateTable<Picturra.Models.Data.Contact>(overwrite: false);
+            }
         }
 
 

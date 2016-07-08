@@ -8,7 +8,7 @@ namespace Picturra.com.Controllers
     {
         public string GetContactInformation()
         {
-            return JsonConvert.SerializeObject(new ContactInformation());
+            return JsonConvert.SerializeObject(new Contact());
         }
 
         public string SaveContactInformation()

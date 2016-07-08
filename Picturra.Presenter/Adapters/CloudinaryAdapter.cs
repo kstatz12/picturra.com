@@ -14,11 +14,11 @@ namespace Picturra.Presenter.Adapters
 {
     public class CloudinaryAdapter : ICloudinaryAdapter
     {
-        private readonly IImageUploadRepository<ImageUpload, int> _imageUploadRepository;
-        public CloudinaryAdapter(IImageUploadRepository<ImageUpload, int> imageUploadRepository)
+        private IImageUploadRepository _imageUplaodRepository;
+        public CloudinaryAdapter(IImageUploadRepository imageUploadRepository)
         {
             Credentials = CloudinaryAccountFactory.Create();
-            _imageUploadRepository = imageUploadRepository;
+            _imageUplaodRepository = imageUploadRepository;
         }
         public Account Credentials { get; set; }
 
@@ -39,7 +39,7 @@ namespace Picturra.Presenter.Adapters
                 File = new FileDescription(imageUpload.FileName, imageUpload.File)
             };
             var uploadResult = cloudinary.Upload(uploadParams);
-            _imageUploadRepository.Set(imageUpload);
+            _imageUplaodRepository.Save(imageUpload);
             return new Image
             {
                 Url = uploadResult.Uri.ToString(),

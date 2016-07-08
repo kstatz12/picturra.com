@@ -26,6 +26,7 @@ namespace Service.Picturra.com
             //Config examples
             //this.Plugins.Add(new PostmanFeature());
             //this.Plugins.Add(new CorsFeature());
+            
         }
     }
 }

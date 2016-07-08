@@ -1,28 +1,37 @@
-﻿using Picturra.Data.Contracts;
-using System;
-
+﻿using System.Data;
+using Picturra.Data.Contracts;
+using Picturra.Models.Helpers;
 using Picturra.Models.Image;
-using System.Data.SqlClient;
+using ServiceStack.OrmLite;
 
 namespace Picturra.Data
 {
-    public class ImageUploadRepository : IImageUploadRepository<ImageUpload, int>
+    public class ImageUploadRepository : IImageUploadRepository
     {
-        public SqlConnection SqlConnection { get; set; }
-
-        public ImageUpload Get(int id)
+        public OrmLiteConnectionFactory DbFactory { get; set; }
+        private readonly IDbConnection _connection;
+        public ImageUploadRepository(OrmLiteConnectionFactory dbFactory)
         {
-            throw new NotImplementedException();
+            DbFactory = dbFactory;
+            _connection = DbFactory.CreateDbConnection();
+        }
+        public ImageUpload Save(ImageUpload entity)
+        {
+            var imageUpload = entity.ToImageUpload();
+            _connection.Insert(imageUpload);
+            return entity;
         }
 
-        public void Save(ImageUpload entity)
+        public ImageUpload Update(ImageUpload entity)
         {
-            throw new NotImplementedException();
+            var imageUpload = entity.ToImageUpload();
+            _connection.Update(imageUpload);
+            return entity;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _connection.Delete(id);
         }
     }
 }

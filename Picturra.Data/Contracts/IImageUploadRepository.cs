@@ -1,11 +1,10 @@
 ﻿using Picturra.Models;
+using Picturra.Models.Image;
 
 namespace Picturra.Data.Contracts
 {
-    public interface IImageUploadRepository<T, in TId> : IRepository where T : IModelBase<TId>
+    public interface IImageUploadRepository : IWriteRepository<ImageUpload, int>
     {
-        T Get(TId id);
-        void Save(T entity);
-        void Delete(TId id);
+        
     }
 }
