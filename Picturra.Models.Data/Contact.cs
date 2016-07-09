@@ -6,6 +6,7 @@ namespace Picturra.Models.Data
     public class Contact
     {
         [AutoIncrement]
+        [PrimaryKey   ]
         public int Id { get; set; }
         [Required]
         public Guid LoginId { get; set; }
