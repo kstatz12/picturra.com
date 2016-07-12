@@ -62,12 +62,18 @@
     <Compile Include="Adapters\IContactServiceAdapter.cs" />
     <Compile Include="Adapters\IServiceAdapter.cs" />
     <Compile Include="CommandInvoker.cs" />
+    <Compile Include="Commands\DeleteContactByUserGuid.cs" />
     <Compile Include="Commands\DeleteImage.cs" />
+    <Compile Include="Commands\GetContactByUserGuid.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\SaveContact.cs" />
+    <Compile Include="Commands\UpdateContact.cs" />
     <Compile Include="Commands\UploadImage.cs" />
     <Compile Include="Contracts\ICommandInvoker.cs" />
     <Compile Include="Contracts\IPresenter.cs" />
+    <Compile Include="Contracts\IProfilePresenter.cs" />
     <Compile Include="Contracts\IUploadPresenter.cs" />
+    <Compile Include="ProfilePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UploadPresenter.cs" />
   </ItemGroup>

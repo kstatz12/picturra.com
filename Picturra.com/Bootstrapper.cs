@@ -50,7 +50,7 @@ namespace Picturra.com
 
         }
 
-        private static void RegisterApplicationIdentity(UnityContainer container)
+        private static void RegisterApplicationIdentity(IUnityContainer container)
         {
             container.RegisterType<DbContext, ApplicationDbContext>(new HierarchicalLifetimeManager());
 
@@ -68,9 +68,10 @@ namespace Picturra.com
         }
 
 
-        private static void RegisterPresenters(UnityContainer container)
+        private static void RegisterPresenters(IUnityContainer container)
         {
             container.RegisterType<IUploadPresenter, UploadPresenter>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProfilePresenter, ProfilePresenter>(new HierarchicalLifetimeManager());
         }
         private static void RegisterSericeAdapters(UnityContainer container)
         {
@@ -82,7 +83,7 @@ namespace Picturra.com
             container.RegisterType<ICommandInvoker, CommandInvoker>(new HierarchicalLifetimeManager());
         }
 
-        private static void RegisterRepositories(UnityContainer container)
+        private static void RegisterRepositories(IUnityContainer container)
         {
             var connectionString = ConfigurationHelper.GetPicturraConnectionString();
             var connectionFactory = new OrmLiteConnectionFactory(connectionString, SqlServerDialect.Provider);

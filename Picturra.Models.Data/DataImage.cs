@@ -3,13 +3,14 @@ using ServiceStack.DataAnnotations;
 
 namespace Picturra.Models.Data
 {
-    public class Image
+    public class DataImage : IDataImage
     {
-        [PrimaryKey]
         [AutoIncrement]
+        [PrimaryKey]
         public int Id { get; set; }
         [Required]
         public string Url { get; set; }
+        [Required]
         public string Caption { get; set; }
         [Required]
         public string PublicKey { get; set; }

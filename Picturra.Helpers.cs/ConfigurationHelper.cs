@@ -9,11 +9,6 @@ namespace Picturra.Helpers.cs
 {
     public static class ConfigurationHelper
     {
-        public static string GetContactServiceHost()
-        {
-            return ConfigurationManager.AppSettings["ContactServiceBaseUrl"];
-        }
-
         public static string GetPicturraConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["PicturraConnection"].ConnectionString;

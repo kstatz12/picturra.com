@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Picturra.Models.Profile;
+﻿using Picturra.Models.Profile;
 using Service.Picturra.com.ServiceModel;
 
 namespace Picturra.Models.Helpers

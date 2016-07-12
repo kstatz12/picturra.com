@@ -18,8 +18,7 @@ namespace Picturra.Data
         }
         public Models.Profile.Contact Get(int id)
         {
-            var contact = _connection.Single<Models.Data.Contact>(x => x.Id == id);
-            
+            var contact = _connection.SingleById<Models.Data.Contact>(id);
             return contact != null ? contact.ToContact() : new Models.Profile.Contact();
         }
 

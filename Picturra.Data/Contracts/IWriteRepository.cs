@@ -8,4 +8,11 @@ namespace Picturra.Data.Contracts
         T Update(T entity);
         void Delete(TId id);
     }
+
+    public interface IWriteRepository<T> : IRepository
+    {
+        T Save(T entity);
+        T Update(T entity);
+        void Delete(int Id);
+    }
 }

@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Picturra.Models.Data;
 using Picturra.Models.Image;
 using Picturra.Presenter.Contracts;
 

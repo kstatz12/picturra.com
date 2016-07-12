@@ -9,7 +9,7 @@ namespace Picturra.Models.Data
         [PrimaryKey]
         public int Id { get; set; }
         [Reference]
-        public Image TitleImage { get; set; }
+        public SeriesImage TitleImage { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
@@ -22,6 +22,6 @@ namespace Picturra.Models.Data
         public string Year { get; set; }
         public int LikeCount { get; set; }
         [Reference]
-        public List<Image> Images { get; set; } 
+        public List<SeriesImage> Images { get; set; } 
     }
 }

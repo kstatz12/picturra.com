@@ -8,9 +8,12 @@ namespace Picturra.Models.Data
         [AutoIncrement]
         [PrimaryKey]
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
+        public string Description { get; set; }
         [Reference]
-        public Image Image { get; set; }
+        public SeriesTitleImage TitleImage { get; set; }
         [Reference]
         public List<Project> Projects { get; set; } 
     }

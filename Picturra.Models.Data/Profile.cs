@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using ServiceStack.DataAnnotations;
 
 namespace Picturra.Models.Data
 {
-    public class Portfolio
+    public class Profile
     {
         [AutoIncrement]
         [PrimaryKey]
@@ -12,8 +11,10 @@ namespace Picturra.Models.Data
         [Required]
         public Guid LoginId { get; set; }
         [Required]
-        public string Statement { get; set; }
+        public string Name { get; set; }
+        [Required]
+        public string About { get; set; }
         [Reference]
-        public List<Series> Series { get; set; } 
+        public ProfileImage Image { get; set; }
     }
 }

@@ -157,6 +157,10 @@
       <HintPath>..\packages\ServiceStack.OrmLite.Signed.4.0.60\lib\net45\ServiceStack.OrmLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.Signed.4.0.60\lib\net45\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ServiceStack.Text, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Text.Signed.4.0.60\lib\net40\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
@@ -435,6 +439,14 @@
     <ProjectReference Include="..\Picturra.Data\Picturra.Data.csproj">
       <Project>{d0c867f5-06e3-42ec-844e-8a7f7bad8c58}</Project>
       <Name>Picturra.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Picturra.Helpers.cs\Picturra.Helpers.cs.csproj">
+      <Project>{00452E98-BB37-406E-885F-96A54B81E570}</Project>
+      <Name>Picturra.Helpers.cs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Picturra.Models.Data\Picturra.Models.Data.csproj">
+      <Project>{e2b0a36f-690c-4209-908f-49442e2a7a23}</Project>
+      <Name>Picturra.Models.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Picturra.Models\Picturra.Models.csproj">
       <Project>{56646EAD-21E4-41B3-BB78-550870291EB6}</Project>

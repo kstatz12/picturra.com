@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using Picturra.Data.Contracts;
 using Picturra.Models.Helpers;
-using Picturra.Models.Image;
 using ServiceStack.OrmLite;
 
 namespace Picturra.Data
@@ -15,14 +14,14 @@ namespace Picturra.Data
             DbFactory = dbFactory;
             _connection = DbFactory.CreateDbConnection();
         }
-        public ImageUpload Save(ImageUpload entity)
+        public Models.Image.ImageUpload Save(Models.Image.ImageUpload  entity)
         {
             var imageUpload = entity.ToImageUpload();
             _connection.Insert(imageUpload);
             return entity;
         }
 
-        public ImageUpload Update(ImageUpload entity)
+        public Models.Image.ImageUpload Update(Models.Image.ImageUpload entity)
         {
             var imageUpload = entity.ToImageUpload();
             _connection.Update(imageUpload);
